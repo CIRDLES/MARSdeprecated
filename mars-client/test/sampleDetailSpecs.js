@@ -31,6 +31,15 @@ describe('Fetch Sample by IGSN', () => {
       expect(actions.fetchSampleSuccess(sample)).to.eql(expectedAction)
     })
 
+    it('creates an action for the unsuccessful retrieval of a sample', () => {
+      const error = 'Invalid Request'
+      const expectedAction = {
+        type: types.FETCH_SAMPLE_FAILURE,
+        error
+      }
+      expect(actions.fetchSampleFailure(error)).to.eql(expectedAction)
+    })
+
   })
-  
+
 })

@@ -21,3 +21,12 @@ export function fetchSampleSuccess(sample) {
     sample
   }
 }
+
+// Creates an action which signals the unsuccessful completion of an asynchronous
+// call to the server for a specific sample
+export function fetchSampleFailure(error) {
+  return {
+    type: FETCH_SAMPLE_FAILURE,
+    error
+  }
+}
