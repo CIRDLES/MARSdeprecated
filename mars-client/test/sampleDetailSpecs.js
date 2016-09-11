@@ -42,4 +42,14 @@ describe('Fetch Sample by IGSN', () => {
 
   })
 
+  describe('Core state logic', () => {
+
+    it('adds sample details to the sample details object', () => {
+      const state = Map({})
+      const sample = require('./testData/sampleDetails.json')
+      const nextState = core.addSampleDetail(state, sample)
+      expect(nextState).to.equal(Map(sample))
+    })
+  })
+
 })
