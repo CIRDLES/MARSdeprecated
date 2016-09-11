@@ -57,6 +57,14 @@ describe('Fetch Sample by IGSN', () => {
     it('returns the initial state of the detail samples object', () => {
       expect(reducer(undefined, {})).to.equal(Map({}))
     })
+
+    it('updates state when the details of a sample are retrieved', () => {
+      const state = Map({})
+      const sample = require('./testData/sampleDetails.json')
+      const action = {type: types.FETCH_SAMPLE_SUCCESS, sample}
+      const nextState = reducer(state, action)
+      expect(nextState).to.equal(Map(sample))
+    })
   })
 
 })

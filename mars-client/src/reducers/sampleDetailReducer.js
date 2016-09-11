@@ -8,6 +8,8 @@ import {
 
 export default function sampleDetail(state = SAMPLE_DETAIL_INITIAL_STATE, action) {
   switch(action.type) {
+    case FETCH_SAMPLE_SUCCESS:
+      return addSampleDetail(state, action.sample)
     default:
       return state
   }
