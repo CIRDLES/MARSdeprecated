@@ -9,6 +9,7 @@ import Login from './containers/Login'
 
 import App from './components/App'
 import Dashboard from './components/Dashboard'
+import SampleDetail from './containers/SampleDetail'
 
 const Root = ({store}) => (
   <Provider store={store}>
@@ -20,6 +21,7 @@ const Root = ({store}) => (
       </Route>
       <Route path="/" component={App} onEnter={requireAuth}>
         <IndexRoute component={Dashboard}/>
+        <Route path="/sample/:igsn" component={SampleDetail}/>
       </Route>
     </Router>
   </Provider>

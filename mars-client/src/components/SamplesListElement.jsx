@@ -1,8 +1,11 @@
 import React from 'react'
+import {Link} from 'react-router'
 
 const SamplesListElement = ({children}) => (
   <div>
-    {children}
+    <Link to={'/sample/' + children}>
+      {children}
+    </Link>
   </div>
 )
 

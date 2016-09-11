@@ -1,4 +1,3 @@
-import {Component} from 'react'
 import {connect} from 'react-redux'
 import samplesList from '../components/SamplesList'
 
@@ -9,15 +8,14 @@ import {
 const mapStateToProps = (state) => {
   const samples = state.samples.toJS()
   return {
-    samples,
-    usercode: state.user.toJS().usercode
+    samples
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchSamples: (usercode) => {
-      dispatch(fetchUserSamples(usercode || localStorage.usercode))
+      dispatch(fetchUserSamples(localStorage.usercode))
     }
   }
 }
