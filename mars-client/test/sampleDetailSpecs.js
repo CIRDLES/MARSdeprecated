@@ -52,4 +52,11 @@ describe('Fetch Sample by IGSN', () => {
     })
   })
 
+  describe('Reducer logic', () => {
+
+    it('returns the initial state of the detail samples object', () => {
+      expect(reducer(undefined, {})).to.equal(Map({}))
+    })
+  })
+
 })
