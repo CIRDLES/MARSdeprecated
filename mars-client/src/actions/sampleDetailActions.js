@@ -12,3 +12,12 @@ export function fetchSampleRequest() {
     type: FETCH_SAMPLE_REQUEST
   }
 }
+
+// Creates an action which signals the successful completion of an asynchronous
+// call to the server for a specific sample
+export function fetchSampleSuccess(sample) {
+  return {
+    type: FETCH_SAMPLE_SUCCESS,
+    sample
+  }
+}

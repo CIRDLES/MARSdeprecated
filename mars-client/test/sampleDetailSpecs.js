@@ -21,5 +21,16 @@ describe('Fetch Sample by IGSN', () => {
       }
       expect(actions.fetchSampleRequest()).to.eql(expectedAction)
     })
+
+    it('creates an action for the successful retrieval of a sample', () => {
+      const sample = require('./testData/sampleDetails.json')
+      const expectedAction = {
+        type: types.FETCH_SAMPLE_SUCCESS,
+        sample
+      }
+      expect(actions.fetchSampleSuccess(sample)).to.eql(expectedAction)
+    })
+
   })
+  
 })
