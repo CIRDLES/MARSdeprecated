@@ -1,0 +1,13 @@
+{
+  "FACULTY_CODE": "original_archive",
+  "PLATFORM": "platform_name",
+  "CRUISE": "cruise_field_prgrm",
+  "SAMPLE": "name",
+  "PI": "collector",
+  "PROVINCE": "primary_location_type",
+  "IGSN": "igsn",
+  "SAMPLE_COMMENTS": "sample_comment",
+  "DESCRIPTION": "sample_description",
+  "AGE": "geological_age",
+  "ROCK_LITH": "classification"
+}

@@ -1,8 +1,9 @@
 import React from 'react'
+import {Link} from 'react-router'
 
 const App = ({children}) => (
   <div>
-    <h1>MARS</h1>
+    <h1><Link to="/">MARS</Link></h1>
     {children}
   </div>
 )
