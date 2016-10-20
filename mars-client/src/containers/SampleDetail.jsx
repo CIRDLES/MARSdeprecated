@@ -11,11 +11,10 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  console.log(ownProps)
+const mapDispatchToProps = (dispatch) => {
   return {
     getSample: (igsn) => {
-      dispatch(fetchSample(localStorage.username, localStorage.password, igsn))
+      dispatch(fetchSample(localStorage.username, localStorage.password, igsn)).then()
     }
   }
 }

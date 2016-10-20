@@ -1,22 +1,24 @@
-import fetch from 'isomorphic-fetch'
-import convert from 'xml-to-json-promise'
-import FormData from 'form-data'
-import handleErrors from '../fetchErrorHandler'
 import {
-  BASE_URL,
-  POST_SAMPLES_ENDPOINT
-} from '../constants'
-
-import {
+  ADD_UPLOADS,
   POST_SAMPLES_REQUEST,
   POST_SAMPLES_SUCCESS,
   POST_SAMPLES_FAILURE
 } from '../actionTypes'
 
+import fetch from 'isomorphic-fetch'
+import convert from 'xml-to-json-promise'
 import {BASE_URL, POST_SAMPLES_ENDPOINT} from '../constants'
 import FormData from 'form-data'
 import handleErrors from '../fetchErrorHandler'
+import xml2js from 'xml2js'
 
+// Creates an action to locally add sample uploads
+export function addUploads(uploads) {
+  return {
+    type: ADD_UPLOADS,
+    uploads
+  }
+}
 
 // Creates an action that signals the beginning of an asynchronous call to
 // post samples to the server
@@ -48,6 +50,16 @@ export function postSamplesFailure(error) {
 // to the server. It handles when and where the above action creators get called
 export function postSamples(username, password, content) {
   return dispatch => {
+    let builder = new xml2js.Builder({rootName: "samples"})
+    content = {
+      sample: content,
+      $: {
+        "xmlns": "http://app.geosamples.org",
+        "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "xsi:schemaLocation": "http://app.geosamples.org/samplev2.xsd"
+      }
+    }
+    content = builder.buildObject(content)
     var form = new FormData()
     var headers = new Headers()
     headers.append('Accept', 'application/xml')

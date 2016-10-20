@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router'
 
 import SamplesListElement from './SamplesListElement'
 
@@ -15,6 +16,7 @@ class SamplesList extends Component {
   render() {
     return (
       <div>
+        <Link to='upload'>Upload Samples</Link>
         <h3>Previous Samples</h3>
         {this.props.samples.map(sample => (
           <SamplesListElement key={sample}>{sample}</SamplesListElement>

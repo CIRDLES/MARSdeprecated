@@ -2,6 +2,9 @@
 export const CHANGE_USERNAME = 'CHANGE_USERNAME'
 export const CHANGE_PASSWORD = 'CHANGE_PASSWORD'
 
+// Upload actions
+export const ADD_UPLOADS = 'ADD_UPLOADS'
+
 // Async fetch usercode called by thunk fetchUsercode(username, password)
 export const FETCH_USERCODE_REQUEST = 'FETCH_USERCODE_REQUEST'
 export const FETCH_USERCODE_SUCCESS = 'FETCH_USERCODE_SUCCESS'
@@ -21,6 +24,7 @@ export const FETCH_SAMPLE_FAILURE = 'FETCH_SAMPLE_FAILURE'
 export const POST_SAMPLES_REQUEST = 'POST_SAMPLES_REQUEST'
 export const POST_SAMPLES_SUCCESS = 'POST_SAMPLES_SUCCESS'
 export const POST_SAMPLES_FAILURE = 'POST_SAMPLES_FAILURE'
+<<<<<<< HEAD
 
 // Initialize upload samples
 export const INIT_SAMPLE_USERCODE = 'INIT_SAMPLE_USERCODE'
@@ -85,3 +89,5 @@ export const INIT_SAMPLE_DEPTH_MIN = 'INIT_SAMPLE_DEPTH_MIN'
 export const INIT_SAMPLE_DEPTH_MAX = 'INIT_SAMPLE_DEPTH_MAX'
 export const INIT_SAMPLE_DEPTH_SCALE = 'INIT_SAMPLE_DEPTH_SCALE'
 export const INIT_SAMPLE_OTHER_NAMES = 'INIT_SAMPLE_OTHER_NAMES'
+=======
+>>>>>>> origin/master
