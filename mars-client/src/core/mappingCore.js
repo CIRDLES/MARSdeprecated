@@ -12,15 +12,17 @@ export const setMap = (mapFunctionLocation) => {
 }
 
 export const resetMap = () => {
-  let mappingLogic = require('../server/defaultMappingLogic')
+  mappingLogic = require('../server/defaultMappingLogic')
 }
+
+mappingLogic = Object.assign({}, mappingLogic, require('../server/scrippsMappingLogic'))
 /////////////////////////////////////////////////////////
 
 
 export const initUserCode = (state, value, originalKey) => {
   return state.set('user_code', Map({
     key: 'user_code',
-    value: mappingLogic.userCode(value),
+    value: mappingLogic.userCode(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -29,7 +31,7 @@ export const initUserCode = (state, value, originalKey) => {
 export const initSampleType = (state, value, originalKey) => {
   return state.set('sample_type', Map({
     key: 'sample_type',
-    value: mappingLogic.sampleType(value),
+    value: mappingLogic.sampleType(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -38,7 +40,7 @@ export const initSampleType = (state, value, originalKey) => {
 export const initName = (state, value, originalKey) => {
   return state.set('name', Map({
     key: 'name',
-    value: mappingLogic.sampleName(value),
+    value: mappingLogic.sampleName(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -47,7 +49,7 @@ export const initName = (state, value, originalKey) => {
 export const initMaterial = (state, value, originalKey) => {
   return state.set('material', Map({
     key: 'material',
-    value: mappingLogic.material(value),
+    value: mappingLogic.material(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -56,7 +58,7 @@ export const initMaterial = (state, value, originalKey) => {
 export const initIgsn = (state, value, originalKey) => {
   return state.set('igsn', Map({
     key: 'igsn',
-    value: mappingLogic.igsn(value),
+    value: mappingLogic.igsn(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -65,7 +67,7 @@ export const initIgsn = (state, value, originalKey) => {
 export const initParentIgsn = (state, value, originalKey) => {
   return state.set('parent_igsn', Map({
     key: 'parent_igsn',
-    value: mappingLogic.parentIgsn(value),
+    value: mappingLogic.parentIgsn(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -74,7 +76,7 @@ export const initParentIgsn = (state, value, originalKey) => {
 export const initIsPrivate = (state, value, originalKey) => {
   return state.set('is_private', Map({
     key: 'is_private',
-    value: mappingLogic.isPrivate(value),
+    value: mappingLogic.isPrivate(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -83,7 +85,7 @@ export const initIsPrivate = (state, value, originalKey) => {
 export const initPublishDate = (state, value, originalKey) => {
   return state.set('publish_date', Map({
     key: 'publish_date',
-    value: mappingLogic.publishDate(value),
+    value: mappingLogic.publishDate(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -92,7 +94,7 @@ export const initPublishDate = (state, value, originalKey) => {
 export const initClassification = (state, value, originalKey) => {
   return state.set('classification', Map({
     key: 'classification',
-    value: mappingLogic.classification(value),
+    value: mappingLogic.classification(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -101,7 +103,7 @@ export const initClassification = (state, value, originalKey) => {
 export const initClassificationComment = (state, value, originalKey) => {
   const keyValue = Map({
     key: 'classification_comment',
-    value: mappingLogic.classificationComment(value),
+    value: mappingLogic.classificationComment(value, originalKey),
     originalKey,
     originalValue: value
   })
@@ -118,7 +120,7 @@ export const initClassificationComment = (state, value, originalKey) => {
 export const initFieldName = (state, value, originalKey) => {
   return state.set('field_name', Map({
     key: 'field_name',
-    value: mappingLogic.fieldName(value),
+    value: mappingLogic.fieldName(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -127,7 +129,7 @@ export const initFieldName = (state, value, originalKey) => {
 export const initDescription = (state, value, originalKey) => {
   const keyValue = Map({
     key: 'description',
-    value: mappingLogic.description(value),
+    value: mappingLogic.description(value, originalKey),
     originalKey,
     originalValue: value
   })
@@ -144,7 +146,7 @@ export const initDescription = (state, value, originalKey) => {
 export const initAgeMin = (state, value, originalKey) => {
   return state.set('age_min', Map({
     key: 'age_min',
-    value: mappingLogic.ageMin(value),
+    value: mappingLogic.ageMin(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -153,7 +155,7 @@ export const initAgeMin = (state, value, originalKey) => {
 export const initAgeMax = (state, value, originalKey) => {
   return state.set('age_max', Map({
     key: 'age_max',
-    value: mappingLogic.ageMax(value),
+    value: mappingLogic.ageMax(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -162,7 +164,7 @@ export const initAgeMax = (state, value, originalKey) => {
 export const initAgeUnit = (state, value, originalKey) => {
   return state.set('age_unit', Map({
     key: 'age_unit',
-    value: mappingLogic.ageUnit(value),
+    value: mappingLogic.ageUnit(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -171,7 +173,7 @@ export const initAgeUnit = (state, value, originalKey) => {
 export const initGeologicalAge = (state, value, originalKey) => {
   return state.set('geological_age', Map({
     key: 'geological_age',
-    value: mappingLogic.geologicalAge(value),
+    value: mappingLogic.geologicalAge(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -180,7 +182,7 @@ export const initGeologicalAge = (state, value, originalKey) => {
 export const initGeologicalUnit = (state, value, originalKey) => {
   return state.set('geological_unit', Map({
     key: 'geological_unit',
-    value: mappingLogic.geologicalUnit(value),
+    value: mappingLogic.geologicalUnit(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -189,7 +191,7 @@ export const initGeologicalUnit = (state, value, originalKey) => {
 export const initCollectionMethod = (state, value, originalKey) => {
   return state.set('collection_method', Map({
     key: 'collection_method',
-    value: mappingLogic.collectionMethod(value),
+    value: mappingLogic.collectionMethod(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -198,7 +200,7 @@ export const initCollectionMethod = (state, value, originalKey) => {
 export const initCollectionMethodDescr = (state, value, originalKey) => {
   const keyValue = Map({
     key: 'collection_method_descr',
-    value: mappingLogic.collectionMethodDescr(value),
+    value: mappingLogic.collectionMethodDescr(value, originalKey),
     originalKey,
     originalValue: value
   })
@@ -212,19 +214,35 @@ export const initCollectionMethodDescr = (state, value, originalKey) => {
   }
 }
 
+// init size accumulates values so that if an organization has two fields
+// for size E.g. SIZE_CM: 10 and SIZE_MM: 3 they can be combined to form
+// 10.3 CM or 103 MM for SESAR's one size field
 export const initSize = (state, value, originalKey) => {
+  let currentValue = state.get('size') ? state.getIn(['size', 'value']) : 0
+  let newValue = currentValue + mappingLogic.size(value, originalKey)
+  let currentOriginalKey = state.getIn(['size', 'originalKey'])
+  let newOriginalKey
+  if(List.isList(currentOriginalKey)){
+    newOriginalKey = currentOriginalKey.push(originalKey)
+  } else if (currentOriginalKey) {
+    console.log('called')
+    newOriginalKey = List([currentOriginalKey]).push(originalKey)
+  } else {
+    newOriginalKey = originalKey
+  }
+
   return state.set('size', Map({
     key: 'size',
-    value: mappingLogic.sampleSize(value),
-    originalKey,
-    originalValue: value
+    value: newValue,
+    originalKey: newOriginalKey,
+    originalValue: newValue
   }))
 }
 
 export const initSizeUnit = (state, value, originalKey) => {
   return state.set('size_unit', Map({
     key: 'size_unit',
-    value: mappingLogic.sizeUnit(value),
+    value: mappingLogic.sizeUnit(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -233,7 +251,7 @@ export const initSizeUnit = (state, value, originalKey) => {
 export const initSampleComment = (state, value, originalKey) => {
   const keyValue = Map({
     key: 'sample_comment',
-    value: mappingLogic.sampleComment(value),
+    value: mappingLogic.sampleComment(value, originalKey),
     originalKey,
     originalValue: value
   })
@@ -250,7 +268,7 @@ export const initSampleComment = (state, value, originalKey) => {
 export const initPurpose = (state, value, originalKey) => {
   return state.set('purpose', Map({
     key: 'purpose',
-    value: mappingLogic.sampleComment(value),
+    value: mappingLogic.sampleComment(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -259,7 +277,7 @@ export const initPurpose = (state, value, originalKey) => {
 export const initLatitude = (state, value, originalKey) => {
   return state.set('latitude', Map({
     key: 'latitude',
-    value: mappingLogic.latitude(value),
+    value: mappingLogic.latitude(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -268,7 +286,7 @@ export const initLatitude = (state, value, originalKey) => {
 export const initLongitude = (state, value, originalKey) => {
   return state.set('longitude', Map({
     key: 'longitude',
-    value: mappingLogic.longitude(value),
+    value: mappingLogic.longitude(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -277,7 +295,7 @@ export const initLongitude = (state, value, originalKey) => {
 export const initLatitudeEnd = (state, value, originalKey) => {
   return state.set('latitude_end', Map({
     key: 'latitude_end',
-    value: mappingLogic.latitudeEnd(value),
+    value: mappingLogic.latitudeEnd(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -286,7 +304,7 @@ export const initLatitudeEnd = (state, value, originalKey) => {
 export const initLongitudeEnd = (state, value, originalKey) => {
   return state.set('longitude_end', Map({
     key: 'longitude_end',
-    value: mappingLogic.longitudeEnd(value),
+    value: mappingLogic.longitudeEnd(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -295,7 +313,7 @@ export const initLongitudeEnd = (state, value, originalKey) => {
 export const initElevation = (state, value, originalKey) => {
   return state.set('elevation', Map({
     key: 'elevation',
-    value: mappingLogic.elevation(value),
+    value: mappingLogic.elevation(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -304,7 +322,7 @@ export const initElevation = (state, value, originalKey) => {
 export const initElevationEnd = (state, value, originalKey) => {
   return state.set('elevation_end', Map({
     key: 'elevation_end',
-    value: mappingLogic.elevationEnd(value),
+    value: mappingLogic.elevationEnd(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -313,7 +331,7 @@ export const initElevationEnd = (state, value, originalKey) => {
 export const initElevationUnit = (state, value, originalKey) => {
   return state.set('elevation_unit', Map({
     key: 'elevation_unit',
-    value: mappingLogic.elevationUnit(value),
+    value: mappingLogic.elevationUnit(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -322,7 +340,7 @@ export const initElevationUnit = (state, value, originalKey) => {
 export const initVerticalDatum = (state, value, originalKey) => {
   return state.set('vertical_datum', Map({
     key: 'vertical_datum',
-    value: mappingLogic.verticalDatum(value),
+    value: mappingLogic.verticalDatum(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -331,7 +349,7 @@ export const initVerticalDatum = (state, value, originalKey) => {
 export const initNorthing = (state, value, originalKey) => {
   return state.set('northing', Map({
     key: 'northing',
-    value: mappingLogic.northing(value),
+    value: mappingLogic.northing(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -340,7 +358,7 @@ export const initNorthing = (state, value, originalKey) => {
 export const initEasting = (state, value, originalKey) => {
   return state.set('easting', Map({
     key: 'easting',
-    value: mappingLogic.easting(value),
+    value: mappingLogic.easting(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -349,7 +367,7 @@ export const initEasting = (state, value, originalKey) => {
 export const initZone = (state, value, originalKey) => {
   return state.set('zone', Map({
     key: 'zone',
-    value: mappingLogic.zone(value),
+    value: mappingLogic.zone(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -358,7 +376,7 @@ export const initZone = (state, value, originalKey) => {
 export const initNavigationType = (state, value, originalKey) => {
   return state.set('navigation_type', Map({
     key: 'navigation_type',
-    value: mappingLogic.navigationType(value),
+    value: mappingLogic.navigationType(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -367,7 +385,7 @@ export const initNavigationType = (state, value, originalKey) => {
 export const initPrimaryLocationType = (state, value, originalKey) => {
   return state.set('primary_location_type', Map({
     key: 'primary_location_type',
-    value: mappingLogic.primaryLocationType(value),
+    value: mappingLogic.primaryLocationType(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -376,7 +394,7 @@ export const initPrimaryLocationType = (state, value, originalKey) => {
 export const initPrimaryLocationName = (state, value, originalKey) => {
   return state.set('primary_location_name', Map({
     key: 'primary_location_name',
-    value: mappingLogic.primaryLocationName(value),
+    value: mappingLogic.primaryLocationName(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -385,7 +403,7 @@ export const initPrimaryLocationName = (state, value, originalKey) => {
 export const initLocationDescription = (state, value, originalKey) => {
   const keyValue = Map({
     key: 'location_description',
-    value: mappingLogic.locationDescription(value),
+    value: mappingLogic.locationDescription(value, originalKey),
     originalKey,
     originalValue: value
   })
@@ -402,7 +420,7 @@ export const initLocationDescription = (state, value, originalKey) => {
 export const initLocality = (state, value, originalKey) => {
   return state.set('locality', Map({
     key: 'locality',
-    value: mappingLogic.locality(value),
+    value: mappingLogic.locality(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -411,7 +429,7 @@ export const initLocality = (state, value, originalKey) => {
 export const initLocalityDescription = (state, value, originalKey) => {
   const keyValue = Map({
     key: 'locality_description',
-    value: mappingLogic.localityDescription(value),
+    value: mappingLogic.localityDescription(value, originalKey),
     originalKey,
     originalValue: value
   })
@@ -428,7 +446,7 @@ export const initLocalityDescription = (state, value, originalKey) => {
 export const initCountry = (state, value, originalKey) => {
   return state.set('country', Map({
     key: 'country',
-    value: mappingLogic.country(value),
+    value: mappingLogic.country(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -437,7 +455,7 @@ export const initCountry = (state, value, originalKey) => {
 export const initProvince = (state, value, originalKey) => {
   return state.set('province', Map({
     key: 'province',
-    value: mappingLogic.province(value),
+    value: mappingLogic.province(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -446,7 +464,7 @@ export const initProvince = (state, value, originalKey) => {
 export const initCounty = (state, value, originalKey) => {
   return state.set('county', Map({
     key: 'county',
-    value: mappingLogic.county(value),
+    value: mappingLogic.county(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -455,7 +473,7 @@ export const initCounty = (state, value, originalKey) => {
 export const initCity = (state, value, originalKey) => {
   return state.set('city', Map({
     key: 'city',
-    value: mappingLogic.city(value),
+    value: mappingLogic.city(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -464,7 +482,7 @@ export const initCity = (state, value, originalKey) => {
 export const initCruiseFieldPrgrm = (state, value, originalKey) => {
   return state.set('cruise_field_prgrm', Map({
     key: 'cruise_field_prgrm',
-    value: mappingLogic.cruiseFieldPrgrm(value),
+    value: mappingLogic.cruiseFieldPrgrm(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -473,7 +491,7 @@ export const initCruiseFieldPrgrm = (state, value, originalKey) => {
 export const initPlatformType = (state, value, originalKey) => {
   return state.set('platform_type', Map({
     key: 'platform_type',
-    value: mappingLogic.platformType(value),
+    value: mappingLogic.platformType(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -482,7 +500,7 @@ export const initPlatformType = (state, value, originalKey) => {
 export const initPlatformName = (state, value, originalKey) => {
   return state.set('platform_name', Map({
     key: 'platform_name',
-    value: mappingLogic.platformName(value),
+    value: mappingLogic.platformName(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -491,7 +509,7 @@ export const initPlatformName = (state, value, originalKey) => {
 export const initPlatformDescr = (state, value, originalKey) => {
   const keyValue = Map({
     key: 'platform_descr',
-    value: mappingLogic.platformDescr(value),
+    value: mappingLogic.platformDescr(value, originalKey),
     originalKey,
     originalValue: value
   })
@@ -508,7 +526,7 @@ export const initPlatformDescr = (state, value, originalKey) => {
 export const initLaunchPlatformName = (state, value, originalKey) => {
   return state.set('launch_platform_name', Map({
     key: 'launch_platform_name',
-    value: mappingLogic.launchPlatformName(value),
+    value: mappingLogic.launchPlatformName(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -517,7 +535,7 @@ export const initLaunchPlatformName = (state, value, originalKey) => {
 export const initLaunchId = (state, value, originalKey) => {
   return state.set('launch_id', Map({
     key: 'launch_id',
-    value: mappingLogic.launchId(value),
+    value: mappingLogic.launchId(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -526,7 +544,7 @@ export const initLaunchId = (state, value, originalKey) => {
 export const initLaunchTypeName = (state, value, originalKey) => {
   return state.set('launch_type_name', Map({
     key: 'launch_type_name',
-    value: mappingLogic.launchTypeName(value),
+    value: mappingLogic.launchTypeName(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -535,7 +553,7 @@ export const initLaunchTypeName = (state, value, originalKey) => {
 export const initCollector = (state, value, originalKey) => {
   return state.set('collector', Map({
     key: 'collector',
-    value: mappingLogic.collector(value),
+    value: mappingLogic.collector(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -544,7 +562,7 @@ export const initCollector = (state, value, originalKey) => {
 export const initCollectorDetail = (state, value, originalKey) => {
   const keyValue = Map({
     key: 'collector_detail',
-    value: mappingLogic.collectorDetail(value),
+    value: mappingLogic.collectorDetail(value, originalKey),
     originalKey,
     originalValue: value
   })
@@ -561,7 +579,7 @@ export const initCollectorDetail = (state, value, originalKey) => {
 export const initCollectionStartDate = (state, value, originalKey) => {
   return state.set('collection_start_date', Map({
     key: 'collection_start_date',
-    value: mappingLogic.collectionStartDate(value),
+    value: mappingLogic.collectionStartDate(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -570,7 +588,7 @@ export const initCollectionStartDate = (state, value, originalKey) => {
 export const initCollectionEndDate = (state, value, originalKey) => {
   return state.set('collection_end_date', Map({
     key: 'collection_end_date',
-    value: mappingLogic.collectionEndDate(value),
+    value: mappingLogic.collectionEndDate(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -579,7 +597,7 @@ export const initCollectionEndDate = (state, value, originalKey) => {
 export const initCollectionDatePrecision = (state, value, originalKey) => {
   return state.set('collection_date_precision', Map({
     key: 'collection_date_precision',
-    value: mappingLogic.collectionDatePrecision(value),
+    value: mappingLogic.collectionDatePrecision(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -588,7 +606,7 @@ export const initCollectionDatePrecision = (state, value, originalKey) => {
 export const initCurrentArchive = (state, value, originalKey) => {
   return state.set('current_archive', Map({
     key: 'current_archive',
-    value: mappingLogic.currentArchive(value),
+    value: mappingLogic.currentArchive(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -597,7 +615,7 @@ export const initCurrentArchive = (state, value, originalKey) => {
 export const initCurrentArchiveContact = (state, value, originalKey) => {
   return state.set('current_archive_contact', Map({
     key: 'current_archive_contact',
-    value: mappingLogic.currentArchiveContact(value),
+    value: mappingLogic.currentArchiveContact(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -606,7 +624,7 @@ export const initCurrentArchiveContact = (state, value, originalKey) => {
 export const initOriginalArchive = (state, value, originalKey) => {
   return state.set('original_archive', Map({
     key: 'original_archive',
-    value: mappingLogic.originalArchive(value),
+    value: mappingLogic.originalArchive(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -615,7 +633,7 @@ export const initOriginalArchive = (state, value, originalKey) => {
 export const initDepthMin = (state, value, originalKey) => {
   return state.set('depth_min', Map({
     key: 'depth_min',
-    value: mappingLogic.depthMin(value),
+    value: mappingLogic.depthMin(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -624,7 +642,7 @@ export const initDepthMin = (state, value, originalKey) => {
 export const initDepthMax = (state, value, originalKey) => {
   return state.set('depth_max', Map({
     key: 'depth_max',
-    value: mappingLogic.depthMax(value),
+    value: mappingLogic.depthMax(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -633,7 +651,7 @@ export const initDepthMax = (state, value, originalKey) => {
 export const initDepthScale = (state, value, originalKey) => {
   return state.set('depth_scale', Map({
     key: 'depth_scale',
-    value: mappingLogic.depthScale(value),
+    value: mappingLogic.depthScale(value, originalKey),
     originalKey,
     originalValue: value
   }))
@@ -642,7 +660,7 @@ export const initDepthScale = (state, value, originalKey) => {
 export const initSampleOtherNames = (state, value, originalKey) => {
   const keyValue = Map({
     key: 'sample_other_names',
-    value: mappingLogic.sampleOtherNames(value),
+    value: mappingLogic.sampleOtherNames(value, originalKey),
     originalKey,
     originalValue: value
   })
