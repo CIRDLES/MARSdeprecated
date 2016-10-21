@@ -124,7 +124,7 @@ export default function sampleToUpload(state = core.UPLOAD_SAMPLE_INITIAL_STATE,
     case actions.INIT_SAMPLE_DEPTH_SCALE:
       return core.initDepthScale(state, action.value, action.originalKey)
     case actions.INIT_SAMPLE_OTHER_NAMES:
-      return core.initOtherNames(state, action.value, action.originalKey)    
+      return core.initOtherNames(state, action.value, action.originalKey)
     default:
       return state
   }
