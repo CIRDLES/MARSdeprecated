@@ -13,10 +13,6 @@ import {
   POST_SAMPLES_FAILURE
 } from '../actionTypes'
 
-import {BASE_URL, POST_SAMPLES_ENDPOINT} from '../constants'
-import FormData from 'form-data'
-import handleErrors from '../fetchErrorHandler'
-
 
 // Creates an action that signals the beginning of an asynchronous call to
 // post samples to the server

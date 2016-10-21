@@ -2,6 +2,10 @@ import {Map} from 'immutable'
 
 export const ORG_SAMPLE_INITIAL_STATE = Map({})
 
+export function userCode(value) {
+  return value + "lkdjfl"
+}
+
 // FACILITY_CODE
 export const originalArchive = (state, value) => {
   return state.set('original_archive', value)

@@ -19,7 +19,6 @@
   },
   "devDependencies": {
     "cross-env": "^2.0.1",
-    "electron-devtools-installer": "^2.0.1",
-    "electron-react-devtools": "^0.4.0"
+    "electron-devtools-installer": "^2.0.1"
   }
 }

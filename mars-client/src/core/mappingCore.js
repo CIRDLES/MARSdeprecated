@@ -16,6 +16,7 @@ export const resetMap = () => {
 }
 /////////////////////////////////////////////////////////
 
+
 export const initUserCode = (state, value, originalKey) => {
   return state.set('user_code', Map({
     key: 'user_code',
