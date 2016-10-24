@@ -5,13 +5,13 @@ import {List} from 'immutable'
 
 // This reducer maps individual samples to a list
 export default (state = List([]), action) => {
-  if(action.type.startsWith('uploads/')) {
-    action.type = action.type.replace(/uploads\//, '')
+  if(action.type.startsWith(actions.UPLOADS_ACTION_PREFIX)) {
+    action.type = action.type.replace(RegExp(actions.UPLOADS_ACTION_PREFIX), '')
     return state.set(
       action.index,
       sampleMappingReducer(state.get(action.index), action)
     )
-  } 
+  }
   return state
 }
 

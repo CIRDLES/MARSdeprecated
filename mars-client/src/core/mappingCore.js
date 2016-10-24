@@ -118,12 +118,20 @@ export const initClassificationComment = (state, value, originalKey) => {
 }
 
 export const initFieldName = (state, value, originalKey) => {
-  return state.set('field_name', Map({
+  const keyValue = Map({
     key: 'field_name',
-    value: mappingLogic.fieldName(value, originalKey),
+    value: mappingLogic.field_name(value, originalKey),
     originalKey,
     originalValue: value
-  }))
+  })
+  const fieldName = state.get('field_name')
+  if(Map.isMap(fieldName)) {
+    return state.set('field_name', List([fieldName, keyValue]))
+  } else if(List.isList(fieldName)) {
+    return state.set('field_name', fieldName.push(keyValue))
+  } else {
+    return state.set('field_name', keyValue)
+  }
 }
 
 export const initDescription = (state, value, originalKey) => {
