@@ -1,7 +1,22 @@
 import * as actions from '../actionTypes'
 import * as core from '../core/mappingCore'
 
-export default function sampleToUpload(state = core.UPLOAD_SAMPLE_INITIAL_STATE, action) {
+import {List} from 'immutable'
+
+// This reducer maps individual samples to a list
+export default (state = List([]), action) => {
+  if(action.type.startsWith(actions.UPLOADS_ACTION_PREFIX)) {
+    action.type = action.type.replace(RegExp(actions.UPLOADS_ACTION_PREFIX), '')
+    return state.set(
+      action.index,
+      sampleMappingReducer(state.get(action.index), action)
+    )
+  }
+  return state
+}
+
+// This reducer contains the logic for each individual sample to be uploaded
+const sampleMappingReducer = (state = core.UPLOAD_SAMPLE_INITIAL_STATE, action) =>{
   switch(action.type) {
     case actions.INIT_SAMPLE_USERCODE:
       return core.initUserCode(state, action.value, action.originalKey)

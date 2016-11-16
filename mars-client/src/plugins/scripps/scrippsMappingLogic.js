@@ -1,5 +1,4 @@
-import {Map} from 'immutable'
-export const ORG_SAMPLE_INITIAL_STATE = Map({})
+export const ORG_SAMPLE_INITIAL_STATE = {}
 
 // DEVICE
 export const collectionMethod = (value) => {

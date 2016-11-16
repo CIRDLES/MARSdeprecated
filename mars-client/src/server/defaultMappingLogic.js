@@ -24,7 +24,7 @@ export const ageUnit = (value) => value
 export const geologicalAge = (value) => value
 export const geologicalUnit = (value) => value
 export const collectionMethod = (value) => value
-export const sampleSize = (value) => value // SESAR uses "size", but size is a Javascript property
+export const size = (value) => value // SESAR uses "size", but size is a Javascript property
 export const sizeUnit = (value) => value
 export const purpose = (value) => value
 export const latitude = (value) => value
