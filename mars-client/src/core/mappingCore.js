@@ -120,7 +120,7 @@ export const initClassificationComment = (state, value, originalKey) => {
 export const initFieldName = (state, value, originalKey) => {
   const keyValue = Map({
     key: 'field_name',
-    value: mappingLogic.field_name(value, originalKey),
+    value: mappingLogic.fieldName(value, originalKey),
     originalKey,
     originalValue: value
   })

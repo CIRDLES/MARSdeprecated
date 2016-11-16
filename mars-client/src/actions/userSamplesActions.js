@@ -38,7 +38,7 @@ export function fetchUserSamples(usercode) {
   return dispatch => {
     dispatch(fetchUserSamplesRequest())
     var headers = new Headers()
-    headers.append('Accept', 'application/json')
+    headers.append('accept', 'application/json')
     var request = {method: 'GET', headers}
     return fetch(BASE_URL + USER_SAMPLES_ENDPOINT + usercode, request)
       .then(handleErrors)
