@@ -1,0 +1,38 @@
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(3,3,3,0.5);
+  border-radius: 10px;
+  font-size: 1.75em;
+  padding: 2%;
+  text-align: center;
+}
+
+.login input {
+  font-size: 1em;
+  display: block;
+  width: 100%;
+  margin-bottom: .25em;
+  border-radius: 5px;
+}
+
+.login form>[type=submit] {
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 12px;
+}
+
+.login form>[type=submit]:hover {
+  background-color: #3B9E40;
+  cursor: pointer;
+}
+
+.login .error {
+  font-size: .5em;
+  color: orange;
+}

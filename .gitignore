@@ -37,4 +37,5 @@ jspm_packages
 .node_repl_history
 
 # Webpack generated bundles
-mars-client/dist/bundle.js
+mars-client/dist/*
+!mars-client/dist/index.html
