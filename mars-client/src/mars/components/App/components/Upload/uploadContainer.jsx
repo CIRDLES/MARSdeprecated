@@ -1,4 +1,5 @@
 import {connect} from 'react-redux'
+import {hashHistory} from 'react-router'
 
 import * as settingsActions from './ducks/settings'
 import * as uploadSamplesActions from './ducks/uploadSamples'
@@ -33,6 +34,7 @@ const mapDispatchToProps = (dispatch) => {
         worker.postMessage({sourceMap, sourceFormat, sourceFiles})
         worker.onmessage = (e) => {
           dispatch(uploadSamplesActions.initializeSamples(e.data))
+          hashHistory.push('/upload/')
         }
       }
     }
