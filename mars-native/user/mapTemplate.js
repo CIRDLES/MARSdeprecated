@@ -12,7 +12,7 @@
 let map = {
   user_code: ,                // (ATOMATIC) SESAR user code, five digits e.g. IESES.
   sample_type: ,              // The type of sample which comes from a SESAR controlled list
-  name: ,                     // The Name of the sample
+  name: ,                     // The Name of the sample.
   material: ,                 // The material of the sample which comes from a SESAR controlled list
   igsn: ,                     // (AUTOMATIC) The 9-digit IGSN of the sample
   parent_igsn: ,              // The IGSN of the parent of the current sample

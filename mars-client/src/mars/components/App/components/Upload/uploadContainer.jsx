@@ -1,6 +1,7 @@
 import {connect} from 'react-redux'
 
-import * as actions from './ducks/settings'
+import * as settingsActions from './ducks/settings'
+import * as uploadSamplesActions from './ducks/uploadSamples'
 import Worker from 'worker-loader!./helpers/sandbox'
 import Upload from './upload'
 
@@ -18,20 +19,20 @@ const mapDispatchToProps = (dispatch) => {
   return {
     settings: {
       onChangeMapping: (map) => {
-        dispatch(actions.changeMappingSource(map))
+        dispatch(settingsActions.changeMappingSource(map))
       },
       onChangeFormat: (format) => {
-        dispatch(actions.changeSourceFormat(format))
+        dispatch(settingsActions.changeSourceFormat(format))
       },
       onChangeFiles: (files) => {
-        dispatch(actions.changeSourceFiles(files))
+        dispatch(settingsActions.changeSourceFiles(files))
       },
       onProceed: (sourceMap, sourceFormat, sourceFiles) => {
         // create a webworker to handle user code in a "sandboxed" environment
         let worker = Worker()
         worker.postMessage({sourceMap, sourceFormat, sourceFiles})
         worker.onmessage = (e) => {
-          console.log(e.data)
+          dispatch(uploadSamplesActions.initializeSamples(e.data))
         }
       }
     }

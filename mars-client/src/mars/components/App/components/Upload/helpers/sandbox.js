@@ -1,7 +1,6 @@
 // code for a webworker so that user JS code can be run in a separate
 // thread from the main application. This disables the users ability
 // to access the application's global scope.
-import * as defaultMappingLogic from './defaultMappingLogic'
 import {csvParse} from 'd3-dsv'
 
 // sandbox only recieves one message which tells it which files
@@ -10,7 +9,6 @@ onmessage = (e) => {
 
   // This callback chain contains all the logic of the webworker
   readSourceMap(e.data.sourceMap, (err, map, logic) => {
-    logic = Object.assign({}, defaultMappingLogic, logic);
 
     // once the sourceMap is read, get the source data
     readSourceData(e.data.sourceFormat, e.data.sourceFiles, map, logic, (err, samples) => {
@@ -25,7 +23,7 @@ const readSourceMap = (mapFile, callback) => {
   let reader = new FileReader()
   reader.onload = (e) => {
     let fileContents = Function(e.target.result)() // rather than using eval, create a Function using the mapping file contents as the body
-    return callback(null, fileContents.map, fileContents.mappingLogic)
+    return callback(null, fileContents.map, fileContents.logic)
   }
   reader.readAsText(mapFile)
 }
