@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron . &",
+    "start": "electron .",
     "build": "./node_modules/mars-client/node_modules/.bin/webpack --context ./node_modules/mars-client/ --config ./node_modules/mars-client/webpack.config.js",
-    "build-watch": "x-terminal-emulator -e ./node_modules/mars-client/node_modules/.bin/webpack-dev-server --inline --context ./node_modules/mars-client/ --config ./node_modules/mars-client/webpack.config.js --content-base ./node_modules/mars-client/dist",
+    "build-watch": "./node_modules/mars-client/node_modules/.bin/webpack-dev-server --inline --context ./node_modules/mars-client/ --config ./node_modules/mars-client/webpack.config.js --content-base ./node_modules/mars-client/dist &",
     "start-dev": "npm run build && cross-env DEV=true npm start",
-    "start-dev-watch": "npm run build-watch && cross-env WATCH=true DEV=true npm start"
+    "start-dev-watch": "npm run build-watch & cross-env WATCH=true DEV=true npm start && fg"
   },
   "keywords": [],
   "author": "",

@@ -27,11 +27,6 @@ const Settings = ({sourceMap, onChangeMapping, sourceFormat, onChangeFormat, sou
 
   const handleOnSubmit = (e) => {
     e.preventDefault()
-    // let reader = new FileReader()
-    // reader.onload = (e) => {
-    //   console.log(e.target.result)
-    // }
-    // reader.readAsText(sourceMap[0])
     onProceed(sourceMap[0], sourceFormat, sourceFiles)
   }
 

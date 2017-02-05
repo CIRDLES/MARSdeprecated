@@ -3,9 +3,9 @@ import React from 'react'
 
 import styles from './upload.css'
 
-const Upload = ({children, settings}) => (
+const Upload = ({children, settings, uploadSamples}) => (
   <div styleName='upload'>
-    {React.cloneElement(children, settings)}
+    {React.cloneElement(children, {...settings, uploadSamples})}
   </div>
 )
 
