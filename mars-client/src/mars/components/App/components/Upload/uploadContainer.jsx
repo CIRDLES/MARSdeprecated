@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
       sourceMap: state.app.upload.settings.get('sourceMap'),
       sourceFormat: state.app.upload.settings.get('sourceFormat'),
       sourceFiles: state.app.upload.settings.get('sourceFiles')
-    }
+    },
+    uploadSamples: state.app.upload.uploadSamples.toJS()
   }
 }
 
@@ -47,7 +48,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     settings: {
       ...stateProps.settings,
       ...dispatchProps.settings
-    }
+    },
+    uploadSamples: stateProps.uploadSamples
   }
 }
 
