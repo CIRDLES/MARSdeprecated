@@ -6,6 +6,7 @@ import fetch from 'isomorphic-fetch'
 import convert from 'xml-to-json-promise'
 
 // Actions
+const TOGGLE_PERSIST = 'mars/user/TOGGLE_PERSIST'
 const CHANGE_USERNAME = 'mars/user/CHANGE_USERNAME'
 const CHANGE_PASSWORD = 'mars/user/CHANGE_PASSWORD'
 // actions called by the thunk action creator called login()
@@ -16,12 +17,15 @@ const LOGIN_FAILURE = 'mars/user/LOGIN_FAILURE'
 // Initial state
 const INITIAL_STATE = Map({
   username: '',
-  password: ''
+  password: '',
+  isPersisted: false
 })
 
 // Reducer
 export default function reducer(state = INITIAL_STATE, action) {
   switch(action.type) {
+    case TOGGLE_PERSIST:
+      return state.set('isPersisted', !(state.get('isPersisted')))
     case CHANGE_USERNAME:
       return state.set('username', action.username)
     case CHANGE_PASSWORD:
@@ -38,6 +42,12 @@ export default function reducer(state = INITIAL_STATE, action) {
 }
 
 // Action Creators
+export function togglePersist() {
+  return {
+    type: TOGGLE_PERSIST
+  }
+}
+
 export function changeUsername(username) {
   return {
     type: CHANGE_USERNAME,
