@@ -33,12 +33,15 @@ store.subscribe(() => {
       isPersisted: store.getState().user.get('isPersisted')
     }
   }
+  //use localStorage is user wants info to be remembered
   if (persistedState.user.isPersisted) {
     setLocalState(persistedState)
+    sessionStorage.removeItem("state")
   }
+  //use sessionStorage if user doesn't want info stored
   else {
     setSessionState(persistedState)
-    setLocalState()
+    localStorage.removeItem("state")
   }
 })
 

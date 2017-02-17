@@ -36,3 +36,17 @@
   font-size: .5em;
   color: orange;
 }
+
+.login input[type=checkbox] {
+  float: left;
+  position: relative;
+  width: 25px;
+  display: inline;
+}
+
+.login label {
+    float: left;
+    display: inline;
+    font-size: .6em;
+    padding-bottom: 6px;
+}

@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react'
 import CSSModules from 'react-css-modules'
 import styles from './login.css'
 
-const Login = ({username, password, ui, onChangeUsername, onChangePassword, onLogin}) => {
+const Login = ({username, password, ui, onChangeUsername, onChangePassword, onChangePersistedState, onLogin}) => {
 
   const handleChangeUsername = (e) => {
     e.preventDefault()
@@ -17,6 +17,10 @@ const Login = ({username, password, ui, onChangeUsername, onChangePassword, onLo
   const handleSubmit = (e) => {
     e.preventDefault()
     onLogin(username, password)
+  }
+
+  const handleChangePersistedState = (e) => {
+    onChangePersistedState()
   }
 
   return (
@@ -34,6 +38,12 @@ const Login = ({username, password, ui, onChangeUsername, onChangePassword, onLo
           value={password}
           onChange={handleChangePassword}
         />
+        <label>
+          <input
+            type='checkbox'
+            onChange={handleChangePersistedState}
+          />Remember Me
+        </label>
       <input
           type='submit'
           value='Login'
