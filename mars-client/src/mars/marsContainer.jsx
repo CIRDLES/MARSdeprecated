@@ -24,6 +24,9 @@ const mapDispatchToProps = (dispatch) => {
     onChangePassword: (password) => {
       dispatch(actions.changePassword(password))
     },
+    onChangePersistedState: () => {
+      dispatch(actions.togglePersist())
+    },
     onLogin: (username, password) => {
       dispatch(actions.login(username, password))
       .then(usercode => {
