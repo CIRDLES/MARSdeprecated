@@ -6,6 +6,7 @@ import fetch from 'isomorphic-fetch'
 import convert from 'xml-to-json-promise'
 
 // Actions
+const LOGOUT = 'mars/user/LOGOUT'
 const TOGGLE_PERSIST = 'mars/user/TOGGLE_PERSIST'
 const CHANGE_USERNAME = 'mars/user/CHANGE_USERNAME'
 const CHANGE_PASSWORD = 'mars/user/CHANGE_PASSWORD'
@@ -24,6 +25,8 @@ const INITIAL_STATE = Map({
 // Reducer
 export default function reducer(state = INITIAL_STATE, action) {
   switch(action.type) {
+    case LOGOUT:
+      return INITIAL_STATE
     case TOGGLE_PERSIST:
       return state.set('isPersisted', !(state.get('isPersisted')))
     case CHANGE_USERNAME:
@@ -42,6 +45,12 @@ export default function reducer(state = INITIAL_STATE, action) {
 }
 
 // Action Creators
+export function logout() {
+  return {
+    type: LOGOUT
+  }
+}
+
 export function togglePersist() {
   return {
     type: TOGGLE_PERSIST
