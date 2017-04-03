@@ -1,0 +1,19 @@
+.headerTable {
+  white-space: pre-line;
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.headerTable td {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.headerTable th {
+  height: 3em;
+}
+
+.headerTable tbody tr:nth-child(odd) {
+  background: #eee;
+}
