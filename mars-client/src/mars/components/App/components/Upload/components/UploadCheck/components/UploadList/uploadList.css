@@ -1,4 +1,26 @@
 .uploadList {
   flex: 1 auto;
-  margin: 0 10px;
+  margin: 0 8px;
+}
+
+.listItem {
+  color: #000;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.listItem:hover {
+  background: #DDD;
+}
+
+.active {
+  composes: listItem;
+  background: #AAA;
+  color: #fff;
+}
+
+.active:hover {
+  background: #AAA;
 }

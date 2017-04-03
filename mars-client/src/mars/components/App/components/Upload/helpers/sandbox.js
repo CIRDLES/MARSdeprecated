@@ -45,10 +45,17 @@ const readSourceData = (format, files, map, logic, callback) => {
 // createField is a helper function for all the loaders that builds each field
 // for MARS
 const createField = (key, originalValue, originalKey, logic) => {
+  if(!key) {
+    return {
+      originalKey,
+      originalValue
+    }
+  }
+
   return {
-    key,
-    originalValue,
     originalKey,
+    originalValue,
+    key,
     value: logic[key] ? logic[key](originalValue, originalKey) : originalValue
   }
 }
@@ -71,33 +78,37 @@ const loadCSV = (files, map, logic, callback) => {
       reader.onloadend = (e) => {
         // csvParse is a D3 function that loads a csv string. It takes a function
         // which handles the logic for mapping each individual sample
-        let fileData = csvParse(e.target.result, (d) => {
-          let mappedSample = {}
-
-          // for every value in the map of the mapping file
+        csvParse(e.target.result, (d, i) => {
+          if(!samples[i]) {samples[i] = []}
           for(let key in map) {
             if(Array.isArray(map[key])) {
-              let fieldArray = []
-              for(let i=0; i<map[key].length; i++) {
-                if(d[map[key][i]]){fieldArray.push(createField(key, d[map[key][i]], map[key][i], logic))}
+              for(let j=0; j<map[key].length; j++) {
+                if(d[map[key][j]]) {
+                  samples[i].push(createField(key, d[map[key][j]], map[key][j], logic))
+                  delete d[map[key][i]]
+                }
               }
-              if(fieldArray.length > 0){mappedSample[key] = fieldArray}
-            } else {
-              if(d[map[key]]){mappedSample[key] = createField(key, d[map[key]], map[key], logic)}
+            } else if(d[map[key]]){
+              samples[i].push(createField(key, d[map[key]], map[key], logic))
+              delete d[map[key]]
             }
           }
-          return mappedSample
+          // Get the unmapped samples
+          for(let key in d) {
+            d[key] ? samples[i].push(createField(undefined, d[key], key, logic)) : false
+          }
         })
-
-        // combine rows. This could be done at the very end for increased efficiency
-        for(let j=0; j<fileData.length; j++) {
-          samples[j] = {...samples[j], ...fileData[j]}
-        }
 
         // the counter helps us know when all the files have been loaded by counting
         // the number of loadend events that are fired
         counter++
         if(counter == files.length) {
+
+          // filter repeats with hash tables
+          for(let i=0; i<samples.length; i++) {
+            let seen = {}
+            samples[i] = samples[i].filter(field => seen.hasOwnProperty(field.originalKey) ? false : (seen[field.originalKey]) = true)
+          }
           callback(null, samples)
         }
       }
