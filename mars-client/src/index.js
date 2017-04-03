@@ -29,19 +29,18 @@ store.subscribe(() => {
     user: {
       username: store.getState().user.get('username'),
       password: store.getState().user.get('password'),
-      usercode: store.getState().user.get('usercode'),
-      isPersisted: store.getState().user.get('isPersisted')
+      usercode: store.getState().user.get('usercode')
     }
   }
   //use localStorage is user wants info to be remembered
-  if (persistedState.user.isPersisted) {
+  if (store.getState().user.get('isPersisted') && persistedState.user.usercode) {
     setLocalState(persistedState)
-    sessionStorage.removeItem("state")
+    sessionStorage.removeItem('state')
   }
   //use sessionStorage if user doesn't want info stored
   else {
     setSessionState(persistedState)
-    localStorage.removeItem("state")
+    localStorage.removeItem('state')
   }
 })
 
