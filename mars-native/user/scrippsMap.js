@@ -1,3 +1,14 @@
+// ======================
+// Scripps Helpers
+// ======================
+
+//creates a date from a string in the form YYYYDDMM
+const scrippsDate = (scrippsValue) => {
+  const y = scrippsValue.substr(0,4)
+  const m = scrippsValue.substr(6,2)
+  const d = scrippsValue.substr(4,2)
+  return (new Date(y, m, d)).toString()
+}
 
 let map = {
   name: "SAMPLE",
@@ -29,7 +40,8 @@ let map = {
 }
 
 let logic = {
-
+  collection_start_date: scrippsDate,
+  collection_end_date: scrippsDate
 }
 
 return {map, logic}
