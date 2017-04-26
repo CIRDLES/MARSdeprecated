@@ -4,14 +4,11 @@ import React from 'react'
 import styles from './uploadCheck.css'
 import UploadList from './components/UploadList'
 import UploadDetail from './components/UploadDetail'
+import UploadMenu from './components/UploadMenu'
 
-const filterSamples = (samples, filterBy) => {
-  //return samples.filter(field => field.key == filterBy).map(sample => sample.value)
-  return samples
-}
-
-const UploadCheck = ({uploadSamples, params}) => (
+const UploadCheck = ({uploadSamples, sourceMap, user, onUpload, params}) => (
   <div styleName='uploadCheck'>
+    <UploadMenu onUpload={onUpload} uploadSamples={uploadSamples} user={user} sourceMap={sourceMap}/>
     <div styleName='container'>
       <UploadList uploadSamples={uploadSamples}/>
       <UploadDetail sample={uploadSamples[params.sampleId]}/>

@@ -5,9 +5,29 @@
 //creates a date from a string in the form YYYYDDMM
 const scrippsDate = (scrippsValue) => {
   const y = scrippsValue.substr(0,4)
-  const m = scrippsValue.substr(6,2)
-  const d = scrippsValue.substr(4,2)
-  return (new Date(y, m, d)).toString()
+  const d = scrippsValue.substr(6,2)
+  const m = scrippsValue.substr(4,2)
+  return y + '-' + m + '-' + d + 'T00:00:00Z'
+}
+
+// convert mm to cm
+const size = (scrippsValue, scrippsKey) => {
+  return scrippsKey == 'CORED_LENGTH_MM' ? scrippsValue/10 : scrippsValue
+}
+
+// creates a key value string from originalKey and new value
+const keyValueString = (scrippsValue, scrippsKey) => {
+  return scrippsKey + ':' + scrippsValue
+}
+
+// creates a delimited list of values
+const delimit = (valueArray) => {
+  return valueArray.join(';')
+}
+
+// adds values together (specifically CORED_LENGTH and CORED_LENGTH_MM)
+const summate = (valueArray) => {
+  return valueArray.reduce((a,b) => a+Number(b), 0)
 }
 
 let map = {
@@ -41,7 +61,18 @@ let map = {
 
 let logic = {
   collection_start_date: scrippsDate,
-  collection_end_date: scrippsDate
+  collection_end_date: scrippsDate,
+  field_name: keyValueString,
+  description: keyValueString,
+  sample_comment: keyValueString,
+  size: size
 }
 
-return {map, logic}
+let combinations = {
+  field_name: delimit,
+  description: delimit,
+  sample_comment: delimit,
+  size: summate
+}
+
+return {map, logic, combinations}
