@@ -6,7 +6,7 @@ import Tabs from '../../../../../common/Tabs'
 import HeaderTable from '../../../../../common/HeaderTable'
 
 const tabs = (sample) => {
-  let defaultHeader = ['Original Key', 'Original Value', 'SESAR Key', 'SESAR Value']
+  let defaultHeader = ['Original Field', 'Original Value', 'SESAR Field', 'SESAR Value']
   return [{
     name: 'Description',
     content: {
@@ -129,10 +129,6 @@ const parentKeys = [
   'depth_scale',
   'sample_other_names'
 ]
-
-
-var header = ['test1', 'test2']
-var data = [['v1','v2'],['v3','v4']]
 
 const UploadDetail = ({sample}) => (
   <div styleName='uploadDetail'>

@@ -7,15 +7,23 @@ import {csvParse} from 'd3-dsv'
 // will be used and how. Data is stored in e.data
 onmessage = (e) => {
 
-  // This callback chain contains all the logic of the webworker
-  readSourceMap(e.data.sourceMap, (err, map, logic) => {
+  if(e.data.type == 'map') {
+    // This callback chain contains all the logic of the webworker
+    readSourceMap(e.data.sourceMap, (err, map, logic) => {
 
-    // once the sourceMap is read, get the source data
-    readSourceData(e.data.sourceFormat, e.data.sourceFiles, map, logic, (err, samples) => {
-      postMessage(samples)
+      // once the sourceMap is read, get the source data
+      readSourceData(e.data.sourceFormat, e.data.sourceFiles, map, logic, (err, samples) => {
+        postMessage(samples)
+        close()
+      })
+    })
+  } else if (e.data.type == 'combine') {
+    readSourceMap(e.data.sourceMap[0], (err, map, logic, combinations) => {
+      let combinedSamples = combineFields(combinations, map, e.data.uploadSamples)
+      postMessage(combinedSamples)
       close()
     })
-  })
+  }
 }
 
 // Read read source map. callback(err, map, logic)
@@ -23,7 +31,7 @@ const readSourceMap = (mapFile, callback) => {
   let reader = new FileReader()
   reader.onload = (e) => {
     let fileContents = Function(e.target.result)() // rather than using eval, create a Function using the mapping file contents as the body
-    return callback(null, fileContents.map, fileContents.logic)
+    return callback(null, fileContents.map, fileContents.logic, fileContents.combinations)
   }
   reader.readAsText(mapFile)
 }
@@ -36,6 +44,31 @@ const readSourceData = (format, files, map, logic, callback) => {
     default:
       return callback('ERROR')
   }
+}
+
+// combine fields where necessary. This occurs only after the user clicks the upload button
+// to upload their samples to SESAR
+const combineFields = (combinations, map, uploadSamples) => {
+  for(let i=0; i<uploadSamples.length; i++) {
+    for(let key in map) {
+      if(Array.isArray(map[key])) {
+        let filter = uploadSamples[i].filter((value) => map[key].includes(value.originalKey))
+        let inverse = uploadSamples[i].filter((value) => !map[key].includes(value.originalKey))
+        if(filter.length>1) {
+          let reduction = filter.reduce((acc, field) => acc.concat([field.value]), [])
+          if(combinations[key]) {
+            let newField = {key, value: combinations[key](reduction)}
+            inverse.push(newField)
+            uploadSamples[i] = inverse
+          }
+        } else if(filter.length == 1) {
+          inverse.concat(filter)
+          uploadSamples[i] = inverse
+        }
+      }
+    }
+  }
+  return uploadSamples
 }
 
 // **********************************************************
