@@ -18,7 +18,10 @@ const mapStateToProps = (state) => {
       password: state.user.get('password'),
       usercode: state.user.get('usercode')
     },
-    uploadSamples: state.app.upload.uploadSamples.toJS()
+    ui: {
+      loading: state.app.upload.uploadSamples.get('loading')
+    },
+    uploadSamples: state.app.upload.uploadSamples.get('samples').toJS(),
   }
 }
 
@@ -67,6 +70,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
       ...dispatchProps.actions
     },
     user: stateProps.user,
+    ui: stateProps.ui,
     uploadSamples: stateProps.uploadSamples
   }
 }

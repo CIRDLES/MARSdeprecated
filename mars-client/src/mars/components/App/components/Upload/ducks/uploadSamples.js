@@ -1,4 +1,4 @@
-import {List, fromJS} from 'immutable'
+import {Map, List, fromJS} from 'immutable'
 import toXML from '../helpers/toXML'
 import FormData from 'form-data'
 import fetch from 'isomorphic-fetch'
@@ -12,19 +12,24 @@ const UPLOAD_SUCCESS = 'mars/upload/UPLOAD_SUCCESS'
 const UPLOAD_FAILURE = 'mars/upload/UPLOAD_FAILURE'
 
 // Initial state
-const INITIAL_STATE = List([])
+const INITIAL_STATE = Map({'samples': List([]), 'loading': false})
 
 // Reducer
 export default function reducer(state = INITIAL_STATE, action) {
   switch(action.type) {
     case INITIALIZE_SAMPLES:
-      return fromJS(action.sampleArray)
+      return state.set('samples', fromJS(action.sampleArray))
+    case UPLOAD_REQUEST:
+      return state.set('loading', true)
     case UPLOAD_SUCCESS:
       let results = action.results
+      let samples = state.get('samples')
       for(let i=0; i<results.length; i++) {
-        state = state.set(i, state.get(i).push({originalKey: '', originalValue: '', key:'igsn', value:results[i].igsn}))
+        samples = samples.set(i, samples.get(i).push({originalKey: '', originalValue: '', key:'igsn', value:results[i].igsn}))
       }
-      return state
+      return state.set('samples', samples).set('loading', false)
+    case UPLOAD_FAILURE:
+      return state.set('loading', false)
     default:
       return state
   }
