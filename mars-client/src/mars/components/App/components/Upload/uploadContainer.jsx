@@ -18,7 +18,10 @@ const mapStateToProps = (state) => {
       password: state.user.get('password'),
       usercode: state.user.get('usercode')
     },
-    uploadSamples: state.app.upload.uploadSamples.toJS()
+    ui: {
+      loading: state.app.upload.uploadSamples.get('loading')
+    },
+    uploadSamples: state.app.upload.uploadSamples.get('samples').toJS(),
   }
 }
 
@@ -49,7 +52,7 @@ const mapDispatchToProps = (dispatch) => {
         let worker = Worker()
         worker.postMessage({type:'combine', sourceMap, uploadSamples})
         worker.onmessage = (e) => {
-          dispatch(uploadSamplesActions.upload(user.username, user.password, e.data))
+          dispatch(uploadSamplesActions.upload(user.username, user.password, user.usercode, e.data))
         }
       }
     }
@@ -67,6 +70,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
       ...dispatchProps.actions
     },
     user: stateProps.user,
+    ui: stateProps.ui,
     uploadSamples: stateProps.uploadSamples
   }
 }

@@ -8,7 +8,7 @@ import Upload from './uploadContainer'
 // This hook function redirects unauthenticated users to the login
 const uploadHook = (store) => {
   return (location, replaceWith) => {
-    if(!store.getState().app.upload.uploadSamples.size>0){
+    if(!store.getState().app.upload.uploadSamples.get('samples').size>0){
       replaceWith('settings')
     }
   }
