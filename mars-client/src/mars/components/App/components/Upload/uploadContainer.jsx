@@ -49,7 +49,7 @@ const mapDispatchToProps = (dispatch) => {
         let worker = Worker()
         worker.postMessage({type:'combine', sourceMap, uploadSamples})
         worker.onmessage = (e) => {
-          dispatch(uploadSamplesActions.upload(user.username, user.password, e.data))
+          dispatch(uploadSamplesActions.upload(user.username, user.password, user.usercode, e.data))
         }
       }
     }
