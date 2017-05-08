@@ -17,7 +17,7 @@
 
 .welcome h2 {
   font-size: 2.75em;
-  margin-bottom: 1.5em;
+  margin-bottom: 0.55em;
   line-height: 1em;
   opacity: .8;
 }
@@ -37,10 +37,10 @@
 }
 
 .logo {
-  max-height: 23%;
-  min-height: 23%;
+  max-height: 15%;
+  min-height: 15%;
   background-size: contain;
-  margin-top: 30px;
+  margin-bottom: 2.5em;
   background-repeat: no-repeat;
   background-position: center center;
   background-image: url("../../images/MarsLogo.jpg");
