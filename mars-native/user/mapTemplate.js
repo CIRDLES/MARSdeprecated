@@ -81,7 +81,11 @@ let map = {
 // to govern how your values are altered in order to be placed in SESAR's database.
 
 let logic = {
-  // place your functions here
+  // place your logic functions here
+}
+
+let combinations = {
+  // place your combination functions here (only for fields where multiple fields are mapped)
 }
 
 // The return makes your map and logic objects available to MARS

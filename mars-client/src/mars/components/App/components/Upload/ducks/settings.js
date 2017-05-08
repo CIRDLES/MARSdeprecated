@@ -12,7 +12,7 @@ const INITIAL_STATE = Map({})
 export default function reducer(state = INITIAL_STATE, action) {
   switch(action.type) {
     case CHANGE_MAPPING_SOURCE:
-      return state.set('sourceMap', action.sourceMap)
+      return state.set('sourceMap', action.sourceMap) //technically shouldn't be in state b/c not serializable
     case CHANGE_SOURCE_FORMAT:
       return state.set('sourceFormat', action.sourceFormat)
     case CHANGE_SOURCE_FILES:

@@ -13,7 +13,15 @@ const mapStateToProps = (state) => {
       sourceFormat: state.app.upload.settings.get('sourceFormat'),
       sourceFiles: state.app.upload.settings.get('sourceFiles')
     },
-    uploadSamples: state.app.upload.uploadSamples.toJS()
+    user: {
+      username: state.user.get('username'),
+      password: state.user.get('password'),
+      usercode: state.user.get('usercode')
+    },
+    ui: {
+      loading: state.app.upload.uploadSamples.get('loading')
+    },
+    uploadSamples: state.app.upload.uploadSamples.get('samples').toJS(),
   }
 }
 
@@ -32,10 +40,19 @@ const mapDispatchToProps = (dispatch) => {
       onProceed: (sourceMap, sourceFormat, sourceFiles) => {
         // create a webworker to handle user code in a "sandboxed" environment
         let worker = Worker()
-        worker.postMessage({sourceMap, sourceFormat, sourceFiles})
+        worker.postMessage({type: 'map', sourceMap, sourceFormat, sourceFiles})
         worker.onmessage = (e) => {
           dispatch(uploadSamplesActions.initializeSamples(e.data))
           hashHistory.push('/upload/')
+        }
+      }
+    },
+    actions: {
+      onUpload: (sourceMap, uploadSamples, user) => {
+        let worker = Worker()
+        worker.postMessage({type:'combine', sourceMap, uploadSamples})
+        worker.onmessage = (e) => {
+          dispatch(uploadSamplesActions.upload(user.username, user.password, user.usercode, e.data))
         }
       }
     }
@@ -49,6 +66,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
       ...stateProps.settings,
       ...dispatchProps.settings
     },
+    actions: {
+      ...dispatchProps.actions
+    },
+    user: stateProps.user,
+    ui: stateProps.ui,
     uploadSamples: stateProps.uploadSamples
   }
 }
