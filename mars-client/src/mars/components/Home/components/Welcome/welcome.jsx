@@ -5,6 +5,7 @@ import styles from './welcome.css'
 
 const Welcome = () => (
   <div styleName='welcome'>
+    <div styleName='logo'></div>
     <h1>MARS</h1>
     <h2>Middleware Assisting the Registration of Samples</h2>
     <Link to='/login'>Get Started</Link>
