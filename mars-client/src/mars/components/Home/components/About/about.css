@@ -13,3 +13,11 @@
   font-size: 1.75em;
   padding: 2%;
 }
+
+.logo {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("../../images/MarsLogo.jpg");
+  min-height: 5em;
+  background-position: center center;
+}

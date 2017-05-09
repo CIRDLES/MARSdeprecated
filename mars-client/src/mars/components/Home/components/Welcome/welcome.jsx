@@ -7,7 +7,6 @@ const Welcome = () => (
   <div styleName='welcome'>
     <h1>MARS</h1>
     <h2>Middleware Assisting the Registration of Samples</h2>
-    <div styleName='logo'></div>
     <Link to='/login'>Get Started</Link>
   </div>
 )
