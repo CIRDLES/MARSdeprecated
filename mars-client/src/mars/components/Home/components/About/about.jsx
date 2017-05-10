@@ -12,7 +12,9 @@ const About = () => (
       the automation of registering legacy samples at SESAR (System for Earth
       Sample Registration) with pertinent metadata and a IGSN (International
       GeoSample Number). The initial targeted repository is the cores collection
-      of Scripps Institution of Oceanography.
+      of Scripps Institution of Oceanography. MARS is maintained by the College
+      of Charleston with the support of the Lamont-Doherty Earth Observatory at
+      Columbia University.
     </p>
   </div>
 )
