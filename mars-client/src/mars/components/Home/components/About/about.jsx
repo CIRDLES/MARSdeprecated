@@ -4,7 +4,7 @@ import styles from './about.css'
 
 const About = () => (
   <div styleName='about'>
-    <h1>About</h1>
+    <div styleName='logo'></div>
     <p>
       Middleware for Assisting the Registration of Samples (MARS) is a project
       of Working Group 4 of the Internet of Samples (iSamples) NSF-funded

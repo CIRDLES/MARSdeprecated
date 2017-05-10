@@ -10,11 +10,10 @@ import {routes as UploadRoutes} from './components/Upload'
 
 const routes = (store) => (
   <Route component={App}>
-    <IndexRoute component={Dashboard}/>
+    <IndexRoute component={Detail}/>
     <Route path='upload'>
       {UploadRoutes(store)}
     </Route>
-    <Route path='detail' component={Detail}/>
   </Route>
 )
 

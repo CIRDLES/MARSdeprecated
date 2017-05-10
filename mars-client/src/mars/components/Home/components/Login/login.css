@@ -18,16 +18,17 @@
   border-radius: 5px;
 }
 
-.login form>[type=submit] {
+.login form>button {
   font-weight: bold;
   border-radius: 10px;
   border: none;
   background-color: #4CAF50;
   color: white;
   padding: 12px 12px;
+  width: 100%;
 }
 
-.login form>[type=submit]:hover {
+.login form>button:hover {
   background-color: #3B9E40;
   cursor: pointer;
 }

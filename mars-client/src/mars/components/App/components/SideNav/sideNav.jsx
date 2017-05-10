@@ -9,24 +9,14 @@ const SideNav = () => (
   <div styleName='sideNav'>
     <ul>
       <li>
-        <IndexLink to='' styleName='link' activeClassName={styles.active}>
-          <div>
-            <FontAwesome name='tachometer'size='3x'/>
-          </div>
-          <div>
-            Dashboard
-          </div>
-        </IndexLink>
-      </li>
-      <li>
-      <Link to='detail' styleName='link' activeClassName={active}>
+      <IndexLink to='' styleName='link' activeClassName={styles.active}>
           <div>
             <FontAwesome name='info-circle' size='3x'/>
           </div>
           <div>
             Details
           </div>
-        </Link>
+        </IndexLink>
       </li>
       <li>
         <Link to='upload' styleName='link' activeClassName={active}>

@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react'
 import CSSModules from 'react-css-modules'
 import styles from './login.css'
+import FontAwesome from 'react-fontawesome'
 
 const Login = ({username, password, ui, onChangeUsername, onChangePassword, onChangePersistedState, onLogin}) => {
 
@@ -21,6 +22,15 @@ const Login = ({username, password, ui, onChangeUsername, onChangePassword, onCh
 
   const handleChangePersistedState = (e) => {
     onChangePersistedState()
+  }
+
+  const isLoading = () => {
+    if (ui.loading) {
+      return <FontAwesome name="refresh fa-spin fa-fw"/>
+    }
+    else {
+      return "Login"
+    }
   }
 
   return (
@@ -44,11 +54,7 @@ const Login = ({username, password, ui, onChangeUsername, onChangePassword, onCh
             onChange={handleChangePersistedState}
           />Remember Me
         </label>
-      <input
-          type='submit'
-          value='Login'
-          onClick={handleSubmit}
-        />
+      <button onClick={handleSubmit}>{isLoading()}</button>
       </form>
       <div className='error'>{ui.error}</div>
     </div>
