@@ -19,6 +19,11 @@ class Nav extends React.Component {
     }
   }
 
+  openHelp() {
+    const shell = window.require('electron').shell
+    shell.openExternal('https://cirdles.org/projects/mars')
+  }
+
   render() {
     return (
       <div styleName='nav'>
@@ -29,6 +34,7 @@ class Nav extends React.Component {
           <li><Link activeClassName="active" to='/'>Welcome</Link></li>
           <li><Link activeClassName="active" to='/about'>About</Link></li>
           <li><Link activeClassName="active" to='/login'>Login</Link></li>
+          <li><Link activeClassName="active" to='' onClick={() => this.openHelp()}>Help</Link></li>
         </ul>
       </div>
     )
