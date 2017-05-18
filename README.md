@@ -1,3 +1,5 @@
+<img src="https://github.com/CIRDLES/DRAKE/blob/master/logos/MARS/MarsLogo.ico" width="100">
+
 MARS
 ====
 
