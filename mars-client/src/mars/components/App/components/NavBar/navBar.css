@@ -1,0 +1,49 @@
+.navbar {
+  background-color: #545859;
+  box-shadow: 0 0 5px #000;
+  min-height: 50px;
+  margin: 0 auto;
+}
+
+.menu-items {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.navbar>ul>li {
+  display: inline-block;
+  position: relative;
+  text-align: right;
+}
+
+.navbar>ul {
+  display: inline-block;
+  position: absolute;
+  width: 90%;
+  margin-top: 10;
+  margin-bottom: auto;
+  text-align: right;
+}
+
+.navbar div {
+  display: inline-block;
+}
+
+.navbar a {
+  color: #fff;
+  display: inline-block;
+  font-size: 20px;
+  padding: 5px 10px;
+  text-decoration: none;
+  text-shadow: 0 0 2px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  background-color: #434748;
+}
+
+.navbar a.active {
+  background-color: #44e34a;
+}
