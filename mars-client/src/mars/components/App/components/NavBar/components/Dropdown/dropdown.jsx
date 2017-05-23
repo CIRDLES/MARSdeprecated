@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Item from '../item';
 import CSSModules from 'react-css-modules'
 import styles from './dropdown.css'
 
-class Dropdown extends React.Component{
+class Dropdown extends Component{
     constructor(props, context) {
       super(props, context);
       this.state = {

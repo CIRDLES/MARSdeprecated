@@ -4,7 +4,6 @@ import Dropdown from './Dropdown/dropdown';
 
 const MenuItems = () => {
     render() {
-
         const items = this.props.items.map((item, index) => this.itemElement(item, `i${index}`));
 
         return <ul>

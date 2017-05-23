@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import MenuItems from './components/menuItems.jsx';
 import CSSModules from 'react-css-modules'
 import styles from './navBar.css'
 
-class NavBar extends React.Component{
+class NavBar extends Component{
 
     render() {
         const secondaryMenuItems = (
