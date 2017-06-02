@@ -54,7 +54,7 @@ const Settings = ({sourceMap, onChangeMapping, sourceFormat, onChangeFormat, sou
 
   return (
     <div styleName='upload'>
-      <Panel name='Upload Setup'>
+      <Panel name='Mapping Setup'>
         <form styleName='content'>
           <div styleName='text'>Select your Mapping</div>
           <FileInput accept={'.js'} faIcon={'cogs'} files={sourceMap} multiple={false} onChange={handleOnChangeMap}/>

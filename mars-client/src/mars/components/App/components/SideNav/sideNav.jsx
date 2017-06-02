@@ -9,7 +9,7 @@ const SideNav = () => (
   <div styleName='sideNav'>
     <ul>
       <li>
-      <IndexLink to='' styleName='link' activeClassName={styles.active}>
+        <IndexLink to='' styleName='link' activeClassName={styles.active}>
           <div>
             <FontAwesome name='info-circle' size='3x'/>
           </div>

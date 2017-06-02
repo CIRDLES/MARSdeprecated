@@ -5,6 +5,7 @@ import App from './app'
 import Dashboard from './components/Dashboard'
 import Detail from './components/Detail'
 import Upload from './components/Upload'
+import LogoutPage from './components/LogoutPage'
 
 import {routes as UploadRoutes} from './components/Upload'
 
@@ -14,6 +15,7 @@ const routes = (store) => (
     <Route path='upload'>
       {UploadRoutes(store)}
     </Route>
+    <Route path="logout" component={LogoutPage}/>
   </Route>
 )
 

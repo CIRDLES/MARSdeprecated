@@ -9,7 +9,6 @@ const App = ({children}) => (
   <div styleName='app'>
     <TopNav className={styles.topNav}/>
     <div className={styles.main}>
-      <SideNav className={styles.sideNav}/>
       <div className={styles.content}>
         {children}
       </div>
