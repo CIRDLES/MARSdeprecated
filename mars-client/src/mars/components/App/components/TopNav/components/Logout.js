@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import * as types from '../../../ducks/user.js';
+import * as types from '../../../../../ducks/user.js';
 
-class LogoutPage extends Component {
+class Logout extends Component {
   componentWillMount() {
     this.props.dispatch(types.logout())
   }
@@ -13,4 +13,4 @@ class LogoutPage extends Component {
   }
 }
 
-export default connect()(LogoutPage);
+export default connect()(Logout);

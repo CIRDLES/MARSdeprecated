@@ -3,18 +3,12 @@ import React from 'react'
 import CSSModules from 'react-css-modules'
 import {IndexLink, Link} from 'react-router'
 import styles, {active} from './topNav.css'
-import Modal from '../../../common/Modal'
 
 @CSSModules(styles)
 class TopNav extends React.Component {
   constructor() {
     super()
     this.state = {menu: ''}
-  }
-
-  openHelp() {
-    const shell = window.require('electron').shell
-    shell.openExternal('https://cirdles.org/projects/mars')
   }
 
   render() {
@@ -42,7 +36,7 @@ class TopNav extends React.Component {
             </Link>
           </li>
           <li>
-            <Link to='' styleName='link' onClick={() => this.openHelp()}>
+            <Link to='/help' styleName='link' activeClassName={active}>
               <div>
                 <FontAwesome name='question-circle'/>
               </div>
