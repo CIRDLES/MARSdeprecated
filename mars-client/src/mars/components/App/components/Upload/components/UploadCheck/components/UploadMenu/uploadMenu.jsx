@@ -1,6 +1,5 @@
 import CSSModules from 'react-css-modules'
 import React from 'react'
-import {hashHistory} from 'react-router'
 
 import Worker from 'worker-loader!../../../../helpers/sandbox'
 
