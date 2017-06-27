@@ -5,7 +5,7 @@ import Worker from 'worker-loader!../../../../helpers/sandbox'
 
 import styles from './uploadMenu.css'
 
-const UploadMenu = ({uploadSamples, sourceMap, onUpload, onCancel, toCSV, user}) => {
+const UploadMenu = ({uploadSamples, sourceMap, onUpload, toCSV, user}) => {
   const handleOnUpload = (e) => {
     e.preventDefault()
     console.log(user)
@@ -14,7 +14,7 @@ const UploadMenu = ({uploadSamples, sourceMap, onUpload, onCancel, toCSV, user})
 
   const handleOnCancel = (e) => {
     e.preventDefault()
-    onCancel()
+    hashHistory.push('/settings/')
   }
 
   const handleToCSV = (e) => {

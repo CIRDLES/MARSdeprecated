@@ -55,11 +55,8 @@ const mapDispatchToProps = (dispatch) => {
           dispatch(uploadSamplesActions.upload(user.username, user.password, user.usercode, e.data))
         }
       },
-      onCancel: () => {
-        hashHistory.push('/settings/')
-      },
       toCSV: () => {
-        
+
       }
     }
   }
