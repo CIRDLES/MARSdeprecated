@@ -57,6 +57,9 @@ const mapDispatchToProps = (dispatch) => {
       },
       onCancel: () => {
         hashHistory.push('/settings/')
+      },
+      toCSV: () => {
+        
       }
     }
   }
