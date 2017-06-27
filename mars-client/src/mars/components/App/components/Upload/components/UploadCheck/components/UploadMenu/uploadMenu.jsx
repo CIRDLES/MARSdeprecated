@@ -5,7 +5,7 @@ import Worker from 'worker-loader!../../../../helpers/sandbox'
 
 import styles from './uploadMenu.css'
 
-const UploadMenu = ({uploadSamples, sourceMap, onUpload, user}) => {
+const UploadMenu = ({uploadSamples, sourceMap, onUpload, onCancel, user}) => {
 
   const handleOnUpload = (e) => {
     e.preventDefault()
@@ -13,10 +13,15 @@ const UploadMenu = ({uploadSamples, sourceMap, onUpload, user}) => {
     onUpload(sourceMap, uploadSamples, user)
   }
 
+  const handleOnCancel = (e) => {
+    e.preventDefault()
+    onCancel()
+  }
+
   return (
     <div styleName='uploadMenu'>
       <button onClick={handleOnUpload}>Upload</button>
-      <button>Cancel</button>
+      <button onClick={handleOnCancel}>Cancel</button>
       <button>To CSV</button>
     </div>
   )

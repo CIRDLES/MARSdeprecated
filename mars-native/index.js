@@ -16,7 +16,11 @@ app.on('window-all-closed', function() {
 });
 
 app.on('ready', function() {
-  mainWindow = new BrowserWindow({width: 1366, height: 768});
+  mainWindow = new BrowserWindow({
+    title: 'MARS',
+    width: 1366,
+    height: 768
+  });
 
   if(process.env.WATCH) {
     mainWindow.loadURL('http://localhost:8080/index.html');
