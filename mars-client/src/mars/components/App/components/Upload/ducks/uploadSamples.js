@@ -27,6 +27,8 @@ export default function reducer(state = INITIAL_STATE, action) {
       for(let i=0; i<results.length; i++) {
         samples = samples.set(i, samples.get(i).push({originalKey: '', originalValue: '', key:'igsn', value:results[i].igsn}))
       }
+      //enable exporting to CSV after successful upload
+      document.getElementById("toCSV").disabled = false;
       return state.set('samples', samples).set('loading', false)
     case UPLOAD_FAILURE:
       return state.set('loading', false)
