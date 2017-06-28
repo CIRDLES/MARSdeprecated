@@ -54,9 +54,6 @@ const mapDispatchToProps = (dispatch) => {
         worker.onmessage = (e) => {
           dispatch(uploadSamplesActions.upload(user.username, user.password, user.usercode, e.data))
         }
-      },
-      toCSV: () => {
-
       }
     }
   }

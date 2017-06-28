@@ -8,7 +8,7 @@ import UploadMenu from './components/UploadMenu'
 
 const UploadCheck = ({uploadSamples, sourceMap, user, ui, onUpload, toCSV, params}) => (
   <div styleName='uploadCheck'>
-    <UploadMenu onUpload={onUpload} toCSV={toCSV} uploadSamples={uploadSamples} user={user} sourceMap={sourceMap}/>
+    <UploadMenu onUpload={onUpload} uploadSamples={uploadSamples} user={user} sourceMap={sourceMap}/>
     <div styleName='container'>
       <UploadList uploadSamples={uploadSamples}/>
       <UploadDetail sample={uploadSamples[params.sampleId]}/>
