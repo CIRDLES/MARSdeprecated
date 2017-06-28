@@ -6,7 +6,7 @@ import UploadList from './components/UploadList'
 import UploadDetail from './components/UploadDetail'
 import UploadMenu from './components/UploadMenu'
 
-const UploadCheck = ({uploadSamples, sourceMap, user, ui, onUpload, toCSV, params}) => (
+const UploadCheck = ({uploadSamples, sourceMap, user, ui, onUpload, params}) => (
   <div styleName='uploadCheck'>
     <UploadMenu onUpload={onUpload} uploadSamples={uploadSamples} user={user} sourceMap={sourceMap}/>
     <div styleName='container'>
