@@ -1,0 +1,23 @@
+.about {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  max-height: 75%;
+  margin: auto;
+  overflow: auto;
+  text-align: center;
+  background-color: rgba(3,3,3,0.5);
+  border-radius: 10px;
+  font-size: 1.75em;
+  padding: 2%;
+}
+
+.logo {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("../../images/MarsLogo.jpg");
+  min-height: 5em;
+  background-position: center center;
+}
