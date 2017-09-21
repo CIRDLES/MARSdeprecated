@@ -25,7 +25,7 @@ app.on('ready', function() {
   if(process.env.WATCH) {
     mainWindow.loadURL('http://localhost:8080/index.html');
   } else {
-    mainWindow.loadURL('file://' + __dirname + '/node_modules/mars-client/dist/index.html');
+    mainWindow.loadURL('file://' + __dirname + '/dist/index.html');
   }
 
   if(process.env.DEV) {

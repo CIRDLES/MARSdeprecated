@@ -1,4 +1,7 @@
-var path = require('path');
+'use strict';
+
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: {
