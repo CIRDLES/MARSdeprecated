@@ -15,6 +15,7 @@ const toXML = (samples, usercode) => {
     //TEST: ADD REQUIRED attributes
     sampleNode.appendChild(document.createElementNS('http://app.geosamples.org', 'sample_type')).appendChild(document.createTextNode('Individual Sample'))
     sampleNode.appendChild(document.createElementNS('http://app.geosamples.org', 'material')).appendChild(document.createTextNode('Rock'))
+    sampleNode.appendChild(document.createElementNS('http://app.geosamples.org', 'elevation_unit')).appendChild(document.createTextNode('meters'))
 
     //add attributes
     for(let j=0; j<samples[i].length; j++) {
