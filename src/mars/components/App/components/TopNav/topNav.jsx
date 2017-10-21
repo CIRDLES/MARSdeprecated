@@ -16,16 +16,6 @@ class TopNav extends React.Component {
       <div styleName='topNav'>
         <ul>
           <li>
-            <IndexLink to='' styleName='link' activeClassName={active}>
-              <div>
-                <FontAwesome name='info-circle'/>
-              </div>
-              <div>
-                Samples
-              </div>
-            </IndexLink>
-          </li>
-          <li>
             <Link to='upload' styleName='link' activeClassName={active}>
               <div>
                 <FontAwesome name='upload'/>

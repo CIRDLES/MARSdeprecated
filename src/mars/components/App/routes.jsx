@@ -12,12 +12,11 @@ import {routes as UploadRoutes} from './components/Upload'
 
 const routes = (store) => (
   <Route component={App}>
-    <IndexRoute component={Detail}/>
-    <Route path='help' component={Help}/>
-    <Route path='logout' component={Logout}/>
     <Route path='upload'>
       {UploadRoutes(store)}
     </Route>
+    <Route path='help' component={Help}/>
+    <Route path='logout' component={Logout}/>
   </Route>
 )
 
