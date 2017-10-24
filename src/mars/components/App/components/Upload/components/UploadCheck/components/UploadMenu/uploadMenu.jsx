@@ -1,5 +1,5 @@
 import CSSModules from 'react-css-modules'
-import {hashHistory} from 'react-router'
+import hashHistory from 'react-router'
 import React from 'react'
 
 import Worker from 'worker-loader!../../../../helpers/sandbox'
@@ -30,7 +30,7 @@ const UploadMenu = ({uploadSamples, sourceMap, onUpload, user}) => {
 
   const handleOnCancel = (e) => {
     e.preventDefault()
-    hashHistory.push('/settings');
+    hashHistory.push('/settings/')
   }
 
   const convertArrayOfObjectsToCSV = (e) => {
