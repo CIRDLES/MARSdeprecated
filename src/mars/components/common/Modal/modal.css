@@ -11,6 +11,7 @@
 .modal {
   background-color: #fff;
   padding: 30;
+  color: black;
   border-radius: 10px;
   position: fixed;
   top: 50%;
