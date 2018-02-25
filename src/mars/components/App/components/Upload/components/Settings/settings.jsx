@@ -5,6 +5,7 @@ import Dropdown from '../../../../../common/Dropdown'
 import FileInput from '../../../../../common/FileInput'
 import Panel from '../../../common/Panel'
 import styles from './settings.css'
+import Modal from '../../../../../common/Modal'
 
 const Settings = ({sourceMap, onChangeMapping, sourceFormat, onChangeFormat, sourceFiles, onChangeFiles, onProceed}) => {
 
@@ -46,6 +47,9 @@ const Settings = ({sourceMap, onChangeMapping, sourceFormat, onChangeFormat, sou
     if(sourceFormat === '.csv' && sourceFiles && sourceMap) {
       return (
         <div styleName='submitSection'>
+          <Modal show='true'>
+            Sample type, material, and elevation unit are set to be Core, Rock, and meters respectively.
+          </Modal>
           <input styleName='submitButton' type='submit' value='Proceed' onClick={handleOnSubmit}/>
         </div>
       )
