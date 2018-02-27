@@ -48,7 +48,7 @@ const Settings = ({sourceMap, onChangeMapping, sourceFormat, onChangeFormat, sou
       return (
         <div styleName='submitSection'>
           <Modal show='true'>
-            Sample type, material, and elevation unit are set to be Core, Rock, and meters respectively.
+            Sample Type, Material, and Elevation Unit are set as Core, Rock, and Meters respectively.
           </Modal>
           <input styleName='submitButton' type='submit' value='Proceed' onClick={handleOnSubmit}/>
         </div>
